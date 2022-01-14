@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "username": "jasonasano",
+    "password": "jasonasano",
+    "name":"Jason Asano",
+    "cart":[]
+  },
+  {
+    "id": 2,
+    "username": "erinsolstice",
+    "password": "erinsolstice",
+    "name":"Erin Solstice",
+    "cart":[]
+  },
+  {
+    "id": 3,
+    "username": "patrickjane",
+    "password": "patrickjane",
+    "name":"Patrick Jane",
+    "cart":[]
+  }
+]
