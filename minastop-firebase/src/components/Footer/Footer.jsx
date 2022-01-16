@@ -9,11 +9,8 @@ const Footer = () => {
         developer. The credit for the resources in this site and the tools used
         to make them goes to their respective owners.
       </p>
-      <p>Copyright 2022 by Paul Christian. All rights reserved.</p>
-      <p>Minastop is Powered by React.</p>
-      <p>
-        <a href="mailto:paulchristianmasayon2020@gmail.com">
-          minastop@shop.com
+      <p>Copyright 2022 by Paul Christian. All rights reserved. Powered by React. Email: <a href="mailto:paulchristianmasayon2020@gmail.com">
+           minastop@shop.com
         </a>
       </p>
       <img src="../../logo192.png" alt="Minastop logo" />

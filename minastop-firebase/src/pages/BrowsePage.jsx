@@ -1,25 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
+import SearchCategoriesNav from '../components/SearchCategoriesNav/SearchCategoriesNav'
 import SearchBar from "../components/SearchBar/SearchBar";
+import BrowseCategory from "../components/BrowseCategory/BrowseCategory";
+import BrowseSection from '../components/BrowseSection/BrowseSection'
 import c from "./BrowsePage.module.css";
 
-import { Link } from "react-router-dom";
 
 const BrowsePage = () => {
+  const [chosenCategory, setchosenCategory] = useState('')
+ 
+  const filterByCategory = (cat) => {
+    setchosenCategory(cat)
+  }
   return (
-    <section className={c.section}>
-      <nav className={c.nav}>
+    <section className={`section ${c.section}`}>
+      <SearchCategoriesNav className={c.nav}>
         <SearchBar placeholder="Find products" inputClass={c.maxwidth500px} />
-        <ul className={c.maxwidth500px}>
-          <p>Browse Categories</p>
-          {["men's clothing","electronics", "jewelry", "women's clothing"].map((el) => {
-            return (
-              <li key={el} className={c.li}>
-                <Link to={`/products/${el}`}>{el}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+        <BrowseCategory filterByCategory={filterByCategory}/>
+      </SearchCategoriesNav>
+      <BrowseSection chosenCategory={chosenCategory}/>
     </section>
   );
 };
