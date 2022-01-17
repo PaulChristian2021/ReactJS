@@ -19,7 +19,7 @@ const HeaderNav = () => {
   }
 
   const sign = "Sign In"; //
-  const create = true; //
+  
 
   return (
     <>
@@ -36,7 +36,7 @@ const HeaderNav = () => {
       <nav className={c.nav}>
         <nav className={c.headerMenu}>
           <Link to={"/sign"}>{sign}</Link>
-          {create && <Link to={"/create"}>Create</Link>}
+          
           <Link to={"/contact"}>Contact</Link>
           <Link to={"/help"}>Help Center</Link>
         </nav>

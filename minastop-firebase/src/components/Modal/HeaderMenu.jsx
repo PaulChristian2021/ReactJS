@@ -10,10 +10,10 @@ const HeaderMenu = (props) => {
   return (
     <nav className={c.nav}  onClick={props.toggleModal}>
       <div onClick={(e)=>e.stopPropagation()}>
-        <Link to={"/sign"}>{sign}</Link>
-        {create && <Link to={"/create"}>{create}</Link>}
-        <Link to={"/contact"}>Contact</Link>
-        <Link to={"/help"}>Help Center</Link>
+        <Link to={"/sign"} onClick={props.toggleModal}>{sign}</Link>
+        
+        <Link to={"/contact"} onClick={props.toggleModal}>Contact</Link>
+        <Link to={"/help"} onClick={props.toggleModal}>Help Center</Link>
       </div>
     </nav>
   );

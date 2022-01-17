@@ -5,6 +5,8 @@
   padding-left: 30px; padding-right: 20px;
 
   background-color: #49494d;
+
+  position: fixed;
 }
 .header *{color: white;}
 .header>div{
