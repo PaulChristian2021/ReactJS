@@ -12,11 +12,11 @@ const BrowseSection = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setprod(data.products);
       });
   }, []);
-console.log(props)
+// console.log(props)
   const productCards = prod.map((el) => (
     <ProductCard
       key={el.id}

@@ -4,13 +4,15 @@ import c from "./HelpPage.module.css";
 import SearchCategoriesNav from "../components/SearchCategoriesNav/SearchCategoriesNav";
 import SearchBar from "../components/SearchBar/SearchBar";
 
-import HelpArticleLi from "../components/HelpArticleLi/HelpArticleLi";
-import Article from "../components/HelpArticleLi/Article";
+import HelpArticleLi from "../components/HelpArticles/HelpArticleLi";
+import HelpCategoyLi from "../components/HelpArticles/HelpCategoyLi";
+import Article from "../components/HelpArticles/Article";
 
 const HelpPage = () => {
   const [articles, setArticles] = useState([]);
+  const [filteredArticles, setfilteredArticles] = useState([]);
   const [categories, setCategories] = useState([]);
-
+  const [activeCategory, setactiveCategory] = useState("");
   const [articleId, setArticleId] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState({
     id: 1,
@@ -26,7 +28,7 @@ const HelpPage = () => {
     fetch("./helpdatabase.json").then((res) =>
       res.json().then((data) => {
         setArticles(data);
-        // console.log(data);
+        setfilteredArticles(data);
       })
     );
   }, []);
@@ -41,8 +43,12 @@ const HelpPage = () => {
     setCategories(cat);
   }, [articles]);
 
+  function toggleArticles(id) {
+    console.log(id);
+    setArticleId(id);
+  }
   useEffect(() => {
-    const article = articles.filter((a) => a.id === articleId);
+    const article = articles.filter((a) => a.id == articleId);
     const [a] = article;
     setSelectedArticle(a);
     return () => {
@@ -50,28 +56,40 @@ const HelpPage = () => {
     };
   }, [articleId]);
 
-  function toggleArticles(id) {
-    console.log(id);
-    setArticleId(id);
+  function changeActiveCategory(category) {
+    setactiveCategory(category);
   }
+  useEffect(() => {
+    //renders articles under activecategory
+    const filtered = articles.filter((a) =>
+      a.categories.includes(activeCategory)
+    );
+    setfilteredArticles(filtered);
+  }, [activeCategory]);
 
   return (
     <section className={`section ${c.section}`}>
       <h2>Guides Center</h2>
       <SearchCategoriesNav className={c.nav}>
-        <SearchBar placeholder="Find Products" />
+        <SearchBar placeholder="How can we help?" />
       </SearchCategoriesNav>
       <section className={c.section2}>
-        <ul className={c.categories}>
-          {categories.map((c) => (
-            <li className={c.category} key={c}>
-              {c}
-            </li>
-          ))}
-        </ul>
+        <nav>
+          <ul className={c.categories}>
+            {categories.map((c) => (
+              <HelpCategoyLi
+                className={c.category}
+                key={c}
+                text={c}
+                active={activeCategory}
+                onClick={changeActiveCategory}
+              />
+            ))}
+          </ul>
+        </nav>
         <ul className={c.articles}>
           {!articleId &&
-            articles.map((a) => (
+            filteredArticles.map((a) => (
               <HelpArticleLi
                 key={a.id}
                 id={a.id}

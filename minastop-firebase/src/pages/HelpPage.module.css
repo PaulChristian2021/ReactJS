@@ -2,7 +2,7 @@
   background-color: #e3e3cd;
   margin: 0;
 }
-
+.section ul{user-select: none;}
 .search{
 
 }
@@ -15,7 +15,7 @@
 }
 .categories{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 .categories, .articles{
   list-style: none;
