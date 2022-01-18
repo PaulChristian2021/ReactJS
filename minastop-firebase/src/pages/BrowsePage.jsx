@@ -15,7 +15,7 @@ const BrowsePage = () => {
   return (
     <section className={`section ${c.section}`}>
       <SearchCategoriesNav className={c.nav}>
-        <SearchBar placeholder="Find products" inputClass={c.maxwidth500px} />
+        <SearchBar placeholder="Find products"/>
         <BrowseCategory filterByCategory={filterByCategory}/>
       </SearchCategoriesNav>
       <BrowseSection chosenCategory={chosenCategory}/>

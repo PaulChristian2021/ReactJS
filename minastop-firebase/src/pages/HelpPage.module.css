@@ -1,0 +1,22 @@
+.section{
+  background-color: #e3e3cd;
+  margin: 0;
+}
+
+.search{
+
+}
+.section2{
+  display: flex;
+  flex-direction: column;
+}
+.section2 ul{
+  margin-top: 20px;
+}
+.categories{
+  display: flex;
+  justify-content: space-around;
+}
+.categories, .articles{
+  list-style: none;
+}

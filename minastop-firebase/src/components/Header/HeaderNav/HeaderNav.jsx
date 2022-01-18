@@ -38,7 +38,7 @@ const HeaderNav = () => {
           <Link to={"/sign"}>{sign}</Link>
           
           <Link to={"/contact"}>Contact</Link>
-          <Link to={"/help"}>Help Center</Link>
+          <Link to={"/help"}>Help</Link>
         </nav>
         <IconButton onClick={toggleModal} className={c.menu}>
           <AiOutlineMenu />

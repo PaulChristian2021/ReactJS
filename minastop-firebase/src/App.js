@@ -24,7 +24,10 @@ function App() {
           <Route path="/products/:category/:product" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/sign" element={<SignInSignUpPage />} />
-          <Route path="/help" element={<HelpPage />} />
+          <Route path="/help" element={<HelpPage />}>
+            {/* <Route path="/help/:list" element={<HelpPage />}/>
+            <Route path="/help/list/:articleId" element={<HelpPage />}/> */}
+          </Route>
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
 

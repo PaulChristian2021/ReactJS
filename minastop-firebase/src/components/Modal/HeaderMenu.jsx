@@ -6,7 +6,7 @@ import c from "./HeaderMenu.module.css";
 
 const HeaderMenu = (props) => {
   const sign = "Sign In";
-  const create = true;
+  
   return (
     <nav className={c.nav}  onClick={props.toggleModal}>
       <div onClick={(e)=>e.stopPropagation()}>
