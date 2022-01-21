@@ -6,7 +6,7 @@ const HelpArticleLi = (props) => {
   // console.log(props)
   // const a = props.article;
   const categories = props.categories.map((c) => (
-    <span className={c.category}>/{c}</span>
+    <span className={c.category} key={c}>/{c}</span>
   ));
   return (
     <li className={c.li} onClick={() => props.toggleArticles(props.id)}>

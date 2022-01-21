@@ -10,6 +10,9 @@
 .headerMenu{
   display: none;
 }
+.cartBtn{
+  margin-right: 10px;
+}
 
 @media (min-width:600px) {
   .nav .menu{display: none;}  

@@ -21,7 +21,7 @@ const Header = () => {
       } else {
         setheader(true);
       }
-    }, 10);
+    }, 30);
     return () => {
       clearTimeout(handler);
       settop(scrollY);

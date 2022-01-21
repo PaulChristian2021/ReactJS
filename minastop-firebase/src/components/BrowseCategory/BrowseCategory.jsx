@@ -1,14 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import c from './BrowseCategory.module.css'
 import { Link } from "react-router-dom";
 
 const BrowseCategory = ({filterByCategory}) => {
-  const cat = [
-    "women's clothing",
-    "men's clothing",
-    "electronics",
-    "jewelry",
-  ] 
+  const cat = useSelector(state => state.productCategories)
+  
+
   return (
     <div className={`${c.categories} ${c.maxwidth500px}`}>
       <p onMouseEnter={() => {}}>Browse Categories</p>

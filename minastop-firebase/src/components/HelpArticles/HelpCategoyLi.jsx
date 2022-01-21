@@ -10,7 +10,7 @@ const HelpCategoyLi = (props) => {
       }`}
       onClick={()=>props.onClick(props.text)}
     >
-      {props.text}
+      {props.text[0].toUpperCase() + props.text.slice(1)}
     </li>
   );
 };

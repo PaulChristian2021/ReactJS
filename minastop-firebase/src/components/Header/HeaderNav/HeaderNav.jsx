@@ -8,7 +8,7 @@ import IconButton from "../../ui/IconButton";
 import Backdrop from "../../ui/Backdrop";
 import CartItemsCounter from "./CartItemsCounter";
 
-import { BsCart2 } from "react-icons/bs";
+import { BsCart2, BsShopWindow } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 
 const HeaderNav = () => {
@@ -19,7 +19,6 @@ const HeaderNav = () => {
   }
 
   const sign = "Sign In"; //
-  
 
   return (
     <>
@@ -30,25 +29,29 @@ const HeaderNav = () => {
         )}
       {modal &&
         ReactDOM.createPortal(
-          <Backdrop className={c.backdrop}/>,
+          <Backdrop className={c.backdrop} />,
           document.querySelector("#backdrop")
         )}
       <nav className={c.nav}>
-        <nav className={c.headerMenu}>
-          <Link to={"/sign"}>{sign}</Link>
-          
-          <Link to={"/contact"}>Contact</Link>
-          <Link to={"/help"}>Help</Link>
-        </nav>
-        <IconButton onClick={toggleModal} className={c.menu}>
-          <AiOutlineMenu />
+      <IconButton >
+          <Link to="/browse">
+            <BsShopWindow />
+          </Link>
         </IconButton>
-
-        <IconButton>
+        <IconButton className={c.cartBtn}>
           <Link to="/cart">
             <BsCart2 />
             <CartItemsCounter />
           </Link>
+        </IconButton>
+        <nav className={c.headerMenu}>
+          <Link to={"/contact"}>Contact</Link>
+          <Link to={"/help"}>Help</Link>
+          <Link to={"/sign"}>{sign}</Link>
+        </nav>
+
+        <IconButton onClick={toggleModal} className={c.menu}>
+          <AiOutlineMenu />
         </IconButton>
       </nav>
     </>
