@@ -8,6 +8,7 @@ import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import SignInSignUpPage from "./pages/SignInSignUpPage";
 import HelpPage from "./pages/HelpPage";
+import Article from "./components/HelpArticles/Article";
 import ContactPage from "./pages/ContactPage";
 import BrowsePage from "./pages/BrowsePage";
 
@@ -24,10 +25,11 @@ function App() {
           <Route path="/products/:category/:product" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/sign" element={<SignInSignUpPage />} />
-          <Route path="/help" element={<HelpPage />}>
+          <Route path="/help" element={<HelpPage />} />
+          <Route path="/help/:helpArticle" element={<Article />} />
             {/* <Route path="/help/:list" element={<HelpPage />}/>
             <Route path="/help/list/:articleId" element={<HelpPage />}/> */}
-          </Route>
+          {/* </Route> */}
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, Routes, Route } from "react-router-dom";
 import c from "./HelpPage.module.css";
 
 import SearchCategoriesNav from "../components/SearchCategoriesNav/SearchCategoriesNav";
@@ -9,6 +10,7 @@ import HelpCategoyLi from "../components/HelpArticles/HelpCategoyLi";
 import Article from "../components/HelpArticles/Article";
 
 const HelpPage = () => {
+  const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [filteredArticles, setfilteredArticles] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -41,16 +43,20 @@ const HelpPage = () => {
       );
     });
     setCategories(cat);
+    console.log(articles);
   }, [articles]);
 
   function toggleArticles(id) {
+    navigate(`/help/${id}`);
     console.log(id);
     setArticleId(id);
+    console.log.log(articleId);
   }
   useEffect(() => {
-    const article = articles.filter((a) => a.id == articleId);
+    const article = articles.filter((a) => a.id === articleId);
     const [a] = article;
     setSelectedArticle(a);
+    console.log(articleId); //for toggleArticles()
     return () => {
       console.log(a, selectedArticle);
     };
@@ -100,8 +106,11 @@ const HelpPage = () => {
                 toggleArticles={toggleArticles}
               />
             ))}
-          {articleId && <Article article={selectedArticle} />}
+          {/* {articleId && <Article article={selectedArticle} />} */}
         </ul>
+        {/* <Routes>
+          <Route path={`/help/${selectedArticle.id}`} element={<Article />} />
+        </Routes> */}
       </section>
     </section>
   );

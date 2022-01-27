@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 const BrowseCategory = ({filterByCategory}) => {
   const cat = useSelector(state => state.productCategories)
   
-
+  const cate = ['lol', 'lel', 'lil']
   return (
     <div className={`${c.categories} ${c.maxwidth500px}`}>
       <p onMouseEnter={() => {}}>Browse Categories</p>
       <ul className={c.maxwidth500px}>
-        {cat.map((el) => {
+        {cate.map((el) => {
           return (
             <li
               key={el}
